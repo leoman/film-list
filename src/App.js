@@ -1,26 +1,22 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Grid from './containers/Grid';
+import Filters from './containers/Filters'; 
+import { Container, Title } from './styles';
 
 class App extends Component {
+
+  componentDidMount() {
+    this.props.fetchMovies();
+    this.props.fetchMovieGenres();
+  }
+
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
+      <Container>
+        <Title>Movie Listings</Title>
+        <Filters />
+        <Grid />
+      </Container>
     );
   }
 }
